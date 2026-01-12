@@ -1,0 +1,44 @@
+name: Déploiement Site Statique
+
+on:
+  # Se déclenche quand on push sur la branche main
+  push:
+    branches: ["main"]
+
+  # Permet de lancer l'action manuellement depuis l'onglet Actions
+  workflow_dispatch:
+
+# Ces permissions sont OBLIGATOIRES pour que le déploiement fonctionne
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Une seule demande de déploiement à la fois
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  # Tâche unique de déploiement
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (Récupération du code)
+        uses: actions/checkout@v4
+
+      - name: Setup Pages (Configuration)
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact (Préparation des fichiers)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Le dossier où se trouve votre index.html ('.' signifie la racine)
+          path: '.'
+
+      - name: Deploy to GitHub Pages (Mise en ligne)
+        id: deployment
+        uses: actions/deploy-pages@v4
