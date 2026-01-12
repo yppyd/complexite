@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Démocratie & État de Droit</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Complexité<span> Modélisation</span></div>
+        <ul class="nav-links">
+            <li><a href="#" class="active" onclick="showPage('home')">Accueil</a></li>
+            <li><a href="#" onclick="showPage('etat-droit')">I. État de Droit</a></li>
+            <li><a href="#" onclick="showPage('souverainete')">II. Souveraineté</a></li>
+            <li><a href="#" onclick="showPage('cartographie')">III. Cartographie</a></li>
+            <li><a href="#" onclick="showPage('chronologie')">IV. Chronologie</a></li>
+        </ul>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <main>
+
+        <section id="home" class="page active">
+            <header class="hero">
+                <h1>La Crise de la Démocratie</h1>
+                <p class="subtitle">Faut-il renforcer l’État de droit ou la souveraineté populaire ?</p>
+                <button class="btn-cta" onclick="showPage('etat-droit')">Rentrer dans la controverse</button>
+            </header>
+            <div class="container content-block">
+                <h2>Introduction</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada. Nullam ac odio et elit efficitur suscipit.</p>
+            </div>
+        </section>
+
+        <section id="etat-droit" class="page">
+            <div class="container">
+                <h2>I. La Nécessité de l'État de Droit</h2>
+                <p class="intro-text">L’État de droit désigne un système politique et juridique dans lequel le pouvoir est soumis au droit. Cela signifie que tous les acteurs — citoyens comme autorités publiques — doivent respecter les lois, et que ces lois encadrent l’exercice du pouvoir.</p>
+                
+                <div class="grid-2">
+                    <div class="card">
+                        <h3><i class="fas fa-shield-alt"></i> L’État de droit protège la démocratie</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    </div>
+                    <div class="card">
+                        <h3><i class="fas fa-balance-scale"></i> Légitimité par le peuple</h3>
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="souverainete" class="page">
+            <div class="container">
+                <h2>II. Le Risque de la "Juristocratie"</h2>
+                <p class="intro-text">La critique populiste et démocratique : le gouvernement des juges.</p>
+                
+                <article class="article-box">
+                    <h3>La dépossession du peuple</h3>
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati.</p>
+                    <blockquote>
+                        "Si le peuple vote, mais que le juge décide, qui gouverne vraiment ?" 
+                        <br><span>- Lorem Ipsum Philosophus</span>
+                    </blockquote>
+                    <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="cartographie" class="page">
+            <div class="container">
+                <h2>III. Cartographie</h2>
+                <p class="intro-text">Concilier la volonté générale et le respect des formes.</p>
+
+                <div class="comparison-table-wrapper">
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>Risque Juridique</th>
+                                <th>Risque Politique</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Technocratie</td>
+                                <td>Ochlocratie (Foule)</td>
+                            </tr>
+                            <tr>
+                                <td>Immobilisme</td>
+                                <td>Instabilité</td>
+                            </tr>
+                            <tr>
+                                <td>Lorem Ipsum</td>
+                                <td>Dolor Sit Amet</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn-cta" onclick="showPage('home')">Retour à l'accueil</button>
+                </div>
+            </div>
+        </section>
+        <section id="chronologie" class="page">
+            <div class="container">
+                <h2>IV. Chronologie</h2>
+                <p class="intro-text">Concilier la volonté générale et le respect des formes.</p>
+
+                <div class="comparison-table-wrapper">
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>Risque Juridique</th>
+                                <th>Risque Politique</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Technocratie</td>
+                                <td>Ochlocratie (Foule)</td>
+                            </tr>
+                            <tr>
+                                <td>Immobilisme</td>
+                                <td>Instabilité</td>
+                            </tr>
+                            <tr>
+                                <td>Lorem Ipsum</td>
+                                <td>Dolor Sit Amet</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn-cta" onclick="showPage('home')">Retour à l'accueil</button>
+                </div>
+            </div>
+        </section>
+        
+
+    </main>
+
+    <footer>
+        <p>Projet complexité</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
