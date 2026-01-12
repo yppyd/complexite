@@ -127,3 +127,140 @@ footer { background: var(--primary); color: var(--white); text-align: center; pa
     
     .hero h1 { font-size: 2rem; }
 }
+/* --- STYLE DE LA CARTOGRAPHIE --- */
+
+.map-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 20px;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+}
+
+/* Les Pôles (Camps) */
+.pole {
+    flex: 1;
+    min-width: 250px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.pole-law {
+    background: linear-gradient(to bottom right, #eef2f3, #dbe6ea);
+    border-top: 5px solid var(--primary);
+}
+
+.pole-people {
+    background: linear-gradient(to bottom left, #fff0f0, #ffebe6);
+    border-top: 5px solid var(--accent);
+}
+
+.pole-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-family: 'Georgia', serif;
+}
+.pole-law .pole-header { color: var(--primary); }
+.pole-people .pole-header { color: var(--accent); }
+
+.actors-list {
+    list-style: none;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.actors-list li {
+    background: rgba(255,255,255,0.6);
+    padding: 8px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.argument {
+    margin-top: auto; /* Pousse vers le bas */
+    font-style: italic;
+    font-weight: bold;
+    padding: 10px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 5px;
+}
+
+/* Zone centrale (Friction) */
+.friction-zone {
+    flex: 0 0 150px; /* Largeur fixe */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+.friction-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #999;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.conflict-point {
+    background: #333;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    z-index: 2;
+    position: relative;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Ligne connecteur visuel */
+.friction-zone::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    left: 50%;
+    width: 2px;
+    background: repeating-linear-gradient(
+        to bottom,
+        #ccc,
+        #ccc 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    z-index: 1;
+}
+
+.analysis-box {
+    background-color: #f8f9fa;
+    border-left: 4px solid #666;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Responsive Cartographie */
+@media (max-width: 768px) {
+    .map-container {
+        flex-direction: column;
+    }
+    .friction-zone {
+        flex-direction: row; /* Horizontal sur mobile */
+        flex-wrap: wrap;
+        border-top: 2px dashed #ccc;
+        border-bottom: 2px dashed #ccc;
+        padding: 20px 0;
+    }
+    .friction-zone::before { display: none; }
+}
