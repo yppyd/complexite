@@ -265,3 +265,183 @@ footer { background: var(--primary); color: var(--white); text-align: center; pa
     }
     .friction-zone::before { display: none; }
 }
+
+/* --- SECTION CHRONOLOGIE --- */
+
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 20px 0;
+}
+
+/* La ligne centrale */
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #bdc3c7; /* Gris clair */
+    top: 0; bottom: 0; left: 50%;
+    margin-left: -2px;
+    z-index: 0;
+}
+
+/* Items standards */
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.timeline-item.left { left: 0; text-align: right; }
+.timeline-item.right { left: 50%; text-align: left; }
+
+/* Le point sur la ligne */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 16px; height: 16px;
+    background-color: var(--white);
+    border: 4px solid var(--primary);
+    top: 20px;
+    border-radius: 50%;
+    z-index: 1;
+}
+.timeline-item.left::after { right: -12px; }
+.timeline-item.right::after { left: -12px; }
+
+/* Boite de contenu standard */
+.content-box {
+    background: var(--white);
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.content-box:hover, .content-box:focus {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    border-left: 4px solid var(--accent); /* Petit effet visuel */
+}
+
+.date-label {
+    font-weight: bold;
+    color: var(--accent);
+    display: block;
+    font-size: 0.9rem;
+}
+
+.item-title {
+    margin: 5px 0;
+    font-size: 1.1rem;
+    color: var(--primary);
+}
+
+/* Texte caché (Hover) */
+.hover-details {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.4s ease;
+    font-size: 0.9rem;
+    color: #555;
+    text-align: justify;
+}
+
+/* Apparition du texte */
+.content-box:hover .hover-details,
+.content-box:focus .hover-details {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 10px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+/* --- ÉVÉNEMENTS MAJEURS (Brexit / GJ) --- */
+.timeline-item.major {
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.timeline-item.major::after { display: none; } /* Pas de petit point */
+
+.major-content-box {
+    background: var(--primary);
+    color: var(--white);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.3s;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.major-content-box:hover { transform: translateY(-5px); background: #34495e; }
+
+/* Style spécifique Gilets Jaunes */
+.major-content-box.gj-style {
+    background: #f39c12; /* Jaune/Orange */
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+.major-content-box.gj-style:hover { background: #e67e22; }
+
+.major-title { font-family: 'Georgia', serif; font-size: 1.5rem; margin: 10px 0; }
+.click-cta { margin-top: 15px; font-weight: bold; font-size: 0.9rem; opacity: 0.8; }
+
+/* --- MODALES --- */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.modal-overlay.active { display: flex; animation: fadeIn 0.3s; }
+
+.modal-content {
+    background: var(--white);
+    width: 100%;
+    max-width: 700px;
+    border-radius: 8px;
+    padding: 30px;
+    position: relative;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #999;
+}
+.modal-close:hover { color: var(--accent); }
+
+/* --- RESPONSIVE CHRONOLOGIE --- */
+@media (max-width: 768px) {
+    .timeline-container::after { left: 20px; }
+    
+    .timeline-item { width: 100%; padding-left: 50px; padding-right: 10px; text-align: left; }
+    .timeline-item.right { left: 0; }
+    
+    .timeline-item::after { left: 12px; }
+    .timeline-item.left::after { left: 12px; right: auto; }
+
+    .content-box:hover .hover-details { max-height: 500px; } /* Plus de place sur mobile */
+}
