@@ -42,3 +42,31 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.classList.toggle('mobile-active');
     });
 });
+
+/* --- GESTION DES MODALES (CHRONOLOGIE) --- */
+
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Empêche le scroll derrière
+    }
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Réactive le scroll
+    }
+}
+
+// Fermeture avec la touche ESC
+document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") {
+        const activeModals = document.querySelectorAll('.modal-overlay.active');
+        activeModals.forEach(modal => {
+            closeModal(modal.id);
+        });
+    }
+});
