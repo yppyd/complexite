@@ -70,3 +70,28 @@ document.addEventListener('keydown', function(event) {
         });
     }
 });
+
+// Initialisation de Mermaid
+mermaid.initialize({ startOnLoad: true });
+
+function filterTable(category, btnElement) {
+            // 1. Gérer les lignes du tableau
+            const rows = document.querySelectorAll('.table-row');
+            
+            rows.forEach(row => {
+                if (category === 'all') {
+                    row.style.display = 'table-row';
+                } else {
+                    if (row.classList.contains(category)) {
+                        row.style.display = 'table-row';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+
+            // 2. Gérer l'état actif des boutons
+            const buttons = document.querySelectorAll('.btn-filter');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+        }
