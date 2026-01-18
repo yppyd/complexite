@@ -411,3 +411,184 @@ footer { background: var(--primary); color: var(--white); text-align: center; pa
     padding-bottom: 10px;
     display: inline-block;
 }
+
+/* Style spécifique Gilets Jaunes */
+.major-content-box.gj-style {
+    background: #f39c12; /* Jaune/Orange */
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+.major-content-box.gj-style:hover { background: #e67e22; }
+
+.major-title { font-family: 'Georgia', serif; font-size: 1.5rem; margin: 10px 0; }
+.click-cta { margin-top: 15px; font-weight: bold; font-size: 0.9rem; opacity: 0.8; }
+
+/* --- MODALES --- */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.modal-overlay.active { display: flex; animation: fadeIn 0.3s; }
+
+.modal-content {
+    background: var(--white);
+    width: 100%;
+    max-width: 700px;
+    border-radius: 8px;
+    padding: 30px;
+    position: relative;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #999;
+}
+.modal-close:hover { color: var(--accent); }
+
+/* --- RESPONSIVE CHRONOLOGIE --- */
+@media (max-width: 768px) {
+    .timeline-container::after { left: 20px; }
+    
+    .timeline-item { width: 100%; padding-left: 50px; padding-right: 10px; text-align: left; }
+    .timeline-item.right { left: 0; }
+    
+    .timeline-item::after { left: 12px; }
+    .timeline-item.left::after { left: 12px; right: auto; }
+
+    .content-box:hover .hover-details { max-height: 500px; } /* Plus de place sur mobile */
+}
+
+/* --- MERMAID CARTOGRAPHIE --- */
+
+.mermaid-wrapper {
+   background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow-x: auto; /* Permet le scroll sur mobile */
+}
+
+/* La légende */
+.legend-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+.dot.red { background: #ffcccc; border: 2px solid #c0392b; }
+.dot.blue { background: #cce5ff; border: 2px solid #2980b9; }
+.dot.green { background: #d5f5e3; border: 2px solid #27ae60; }
+
+
+.table-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 { text-align: center; margin-bottom: 20px; color: #2c3e50; }
+
+        /* --- FILTRES (BOUTONS) --- */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-filter {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            background: #eee;
+            color: #666;
+        }
+
+        .btn-filter:hover { background: #ddd; }
+
+        .btn-filter.active { background: #333; color: white; }
+        
+        /* Couleurs spécifiques aux boutons actifs */
+        .btn-filter[data-filter="bloc-a"].active { background: var(--bloc-a-text); }
+        .btn-filter[data-filter="bloc-b"].active { background: var(--bloc-b-text); }
+        .btn-filter[data-filter="bloc-c"].active { background: var(--bloc-c-text); }
+
+        /* --- TABLEAU --- */
+        .responsive-table {
+            overflow-x: auto; /* Scroll horizontal sur mobile */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px; /* Force une largeur min pour la lisibilité */
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        tr:hover { background-color: #fafafa; }
+
+        /* --- BADGES (ÉTIQUETTES) --- */
+        .badge {
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .badge-a { background: var(--bloc-a-bg); color: var(--bloc-a-text); border: 1px solid var(--bloc-a-border); }
+        .badge-b { background: var(--bloc-b-bg); color: var(--bloc-b-text); border: 1px solid var(--bloc-b-border); }
+        .badge-c { background: var(--bloc-c-bg); color: var(--bloc-c-text); border: 1px solid var(--bloc-c-border); }
+
+        .role-text { font-size: 0.9rem; color: #555; }
+        .actor-name { font-weight: bold; font-size: 1rem; display: block; }
+        .actor-sub { font-size: 0.85rem; color: #888; font-style: italic; }
+
+        /* Animation d'apparition */
+        .table-row { animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
