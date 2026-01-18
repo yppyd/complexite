@@ -385,7 +385,7 @@ footer { background: var(--primary); color: var(--white); text-align: center; pa
     z-index: 2;
 }
 
-.major-content-box:hover { transform: translateY(-5px); background: #34495e; }
+.major-content-box:hover { transform: translateY(-5px); background: #cf142b; }
 
 /* Style spécifique Gilets Jaunes */
 .major-content-box.gj-style {
